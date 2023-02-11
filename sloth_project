@@ -38,3 +38,12 @@ sloth_data <- rename(sloth_data, "endangered_status" = "endangered",
 #confirm that names have been changed
 glimpse(sloth_data)
 
+#stacked bar chart
+ggplot(sloth_data, aes(fill = sub_species, x = endangered_status)) + 
+  geom_bar(sub_species = 'stack')
+
+
+#box plot graph
+
+
+
