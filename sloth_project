@@ -1,0 +1,40 @@
+#install the packages needed
+install.packages("tidyverse")
+install.packages("GGally")
+
+#load the installed packages
+library("tidyverse")
+library("GGally")
+
+#import the dataset to be used
+data <- read.csv("data/sloth_data.csv")
+
+#view the characteristic of the dataset such as variable types
+glimpse(data)
+
+#view the number of columns in the dataset
+ncol(data)
+
+#view the number of rows in the dataset
+nrow(data)
+
+#another way to summarize the dataset
+str(data)
+
+#show the table version of the data set
+tibble(data)
+
+#the index column is not needed. Remove the index column
+#and assign a new name to the new data set
+sloth_data <- select(data, -X)
+
+#confirm that the Index column has been removed
+glimpse(sloth_data)
+
+#rename some of the variables
+sloth_data <- rename(sloth_data, "endangered_status" = "endangered",
+                     "main_species" = "specie", "sub_species" = "sub_specie")
+
+#confirm that names have been changed
+glimpse(sloth_data)
+
